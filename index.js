@@ -56,6 +56,8 @@ const questionUser = () =>
     },
 ]).then((response) => {
     console.log(response);
+    fs.writeFile("./Generated/practice.txt", JSON.stringify(response), (err) => 
+    err ? console.log(err) : console.log('Success!'));
 })
 
 
