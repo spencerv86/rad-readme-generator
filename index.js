@@ -4,7 +4,8 @@ const inquirer = require("inquirer");
 
 
 // TODO: Create an array of questions for user input
-const questions = [
+const questionUser = () => 
+    inquirer.prompt([
     {
         type: "input",
         message: "What is your GitHub username?",
@@ -35,11 +36,13 @@ const questions = [
         type: "",
         message: "What command should be run to install dependencies?",
         name: "depCommand",
+        default: "npm i",
     },
     {
         type: "",
         message: "What command should be run to run tests?",
         name: "testCommand",
+        default: "npm test",
     },
     {
         type: "input",
@@ -51,13 +54,19 @@ const questions = [
         message: "What does the user need to know about contributing to the repo?",
         name: "contributions",
     },
-];
+]).then((response) => {
+    console.log(response);
+})
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {}
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+    questionUser();
+
+}
 
 // Function call to initialize app
 init();
