@@ -60,10 +60,7 @@ const questionsForUser = [
         name: "contributions",
       },
     ];
-    // .then((response) => {
-    //   console.log(response);
-    // //   writeToFile("./Generated/README.md", response);
-    // });
+
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
