@@ -1,1 +1,0 @@
-{"github":"spence","userEmail":"spence@spence","projectName":"spence spnece spence","description":"spence spence spence spcne","licenseType":"MIT","depCommand":"npm i","testCommand":"npm test","warnings":"nada nothing","contributions":"no way"}
