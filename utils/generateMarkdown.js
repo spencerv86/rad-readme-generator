@@ -165,8 +165,6 @@ function generateMarkdown(data) {
   \`\`\`
   
   ## Usage
-  
-  To install the necessary dependencies, run the following command:
 
   ${data.usage}
   

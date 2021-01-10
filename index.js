@@ -73,7 +73,6 @@ function writeToFile(fileName, data) {
 function init() {
     console.log("This function has begun");
     inquirer.prompt(questionsForUser).then((response) => {
-        console.log(response);
 
         const newFile = "./Generated/README.md";
         const newMarkDown = generateMarkdown(response);
