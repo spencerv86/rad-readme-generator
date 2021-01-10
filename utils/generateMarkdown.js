@@ -50,9 +50,11 @@ function renderLicenseLink(license) {
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {
+function renderLicenseSection(license, name) {
   if (license === "MIT") {
     let licenseInfo = `
+    Copyright 2021 ${name}
+  
     Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), 
     to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, 
     and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -65,7 +67,9 @@ function renderLicenseSection(license) {
     `;
     return licenseInfo;
   } else if (license === "APACHE 2.0") {
-    let licenseInfo = `   
+    let licenseInfo = `
+    Copyright 2021 ${name}
+
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
     You may obtain a copy of the License at
@@ -81,6 +85,8 @@ function renderLicenseSection(license) {
     return licenseInfo;
   } else if (license === "GPL 3.0") {
     let licenseInfo = `
+    Copyright 2021 ${name}
+
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -97,6 +103,8 @@ function renderLicenseSection(license) {
     return licenseInfo;
   } else if (license === "BSD 3") {
     let licenseInfo = `
+    Copyright 2021 ${name}
+
     Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
 
     1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
@@ -124,7 +132,7 @@ function renderLicenseSection(license) {
 function generateMarkdown(data) {
   const licenseLink = renderLicenseLink(data.licenseType);
   const licenseBadge = renderLicenseBadge(data.licenseType, licenseLink);
-  const licenseInfo = renderLicenseSection(data.licenseType);
+  const licenseInfo = renderLicenseSection(data.licenseType, data.userName);
   const contentOfMarkdown = `
   # ${data.projectName}
 
@@ -140,13 +148,13 @@ function generateMarkdown(data) {
   
   * [Usage](#usage)
   
-  * [License](#license)
-  
   * [Tests](#tests)
   
   * [Contributing](#contributing)
   
   * [Questions](#questions)
+
+  * [License](#license)
   
   ## Installation
   
@@ -156,19 +164,19 @@ function generateMarkdown(data) {
   
   ## Usage
   
+  To install the necessary dependencies, run the following command:
+
+  \`\`\`
   ${data.warnings}
-  
-  ## License
-  
-  Copyright 2021 ${data.userName}
-
-  ${licenseInfo}
-
-  ${licenseLink}
+  \`\`\`
   
   ## Tests
 
+  To run tests, run the following command.
+
+  \`\`\`
   ${data.testCommand}
+  \`\`\`
   
   
   ## Contributing
@@ -178,7 +186,13 @@ function generateMarkdown(data) {
   ## Questions
   
   If you have any questions about the repo, open an issue or contact me directly at ${data.userEmail}. You can find more of my work at my [GitHub](https://github.com/${data.gitHub})
-`;
+
+  ## License
+  
+  ${licenseInfo}
+
+  ${licenseLink}
+  `;
   return contentOfMarkdown;
 }
 
