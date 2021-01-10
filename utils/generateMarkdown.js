@@ -160,15 +160,15 @@ function generateMarkdown(data) {
   
   To install the necessary dependencies, run the following command:
   
+  \`\`\`
   ${data.depCommand}
+  \`\`\`
   
   ## Usage
   
   To install the necessary dependencies, run the following command:
 
-  \`\`\`
-  ${data.warnings}
-  \`\`\`
+  ${data.usage}
   
   ## Tests
 
